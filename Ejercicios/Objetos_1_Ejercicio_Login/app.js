@@ -44,8 +44,10 @@ function comprobarNombre() {
     var n = document.getElementById('name').value;
 
     if (n > 30 || n < 3) {
-        alert('Longitud de nombre no permitido');
+        return false;
     }
+
+    return true;
 }
 
 function comprobarApellido() {
@@ -53,13 +55,29 @@ function comprobarApellido() {
     var a2 = document.getElementById('ape2').value;
 
     if (a1 & a2 > 30 || a1 & a2 < 2) {
-        alert('Longitus de apellidos no permitida');
+        return false;
     }
+
+    return true;
 }
 
 function comprobarFecha() {
     var fechaStr = document.getElementById('nac').value;
-    var fecha = new Date(fechaStr);
+    
+    if (fechaStr.includes('/')) {
+        var f = fechaStr.split('/');
+        
+        if (f.length > 3) {
+            return false;
+        } else {
+
+        }
+
+    } else {
+        return false;
+    }
+
+    return true;
 }
 
 function comprobarEmail() {
@@ -67,17 +85,25 @@ function comprobarEmail() {
 
     if (mail.includes('@')) {
         var m = mail.split('@');
-        var usuario = m[0];
-        var dominio = m[1];
 
-        // Compruebo la posicion del @ mediante las longitudes de los campos
-        if (usuario.length == 0 || dominio.length <= 3) {
-            alert('El @ del email no puede estar ni al principio ni en los ultimos tres caracteres');
-        } 
+        if (m.length > 2) { // Mira que no haya mas de una @
+            return false;
 
+        } else {
+
+            var usuario = m[0];
+            var dominio = m[1];
+
+            // Compruebo la posicion del @ mediante las longitudes de los campos
+            if (usuario.length == 0 || dominio.length <= 3) {
+                return false;
+            } 
+        }
     } else {
-        alert('El email debe incluir un @');
+        return false;
     }
+
+    return true;
 }
 
 function comprobarDNI() {
@@ -94,13 +120,17 @@ function comprobarDNI() {
         var resto = numeros % 23;
 
         if (l[resto] != letra) {
-            alert('El DNI es erroneo');
+            return false;
         }
 
     } else {
-        alert('El DNI no tiene un formato válido');
+        return false;
     }
+
+    return true;
 }
+
+// -----------------------------------------------------------------------------------------
 
 function limpiar() {
     document.getElementById('name').value = '';
@@ -119,17 +149,43 @@ function guardar() {
 function validar() {
     comprobarNombre();
     comprobarApellido();
+    comprobarFecha();
     comprobarEmail();
     comprobarFecha();
     comprobarDNI();
+
+    var mensajeError = validarErrores()
+
+    if (mensajeError == '') {
+        alert('Inicio sesion exitoso');
+    } else {
+        alert(mensajeError);
+    }
 }
 
-// ejemplo le pasa el nombre el min y max y que slaga el error
-function mensajeError (campo, min, max, msg, nombre) { // mas el nombre del campo
-    if (campo.length < min) {
-        msg = msg + 'Debe haber un minimo de ' + min + ' en el campo ' + nombre;
-        
+function validarErrores() {
+    var errorMsg = '';
+
+    if (!comprobarNombre()) {
+        errorMsg += "\nLongitud de nombre no permitido";
     }
 
-    alert(msg);
+    if (!comprobarApellido()) {
+        errorMsg += "\nLongitud de apellidos no permitida";
+    }
+
+    if (!comprobarFecha()) {
+        errorMsg += "\nFormato de fecha invalido";
+    }
+
+    if (!comprobarEmail()) {
+        errorMsg += "\nPosición invalida del @, no se encuentra @ o hay más de un @";
+    }
+
+    if (!comprobarDNI()) {
+        errorMsg += "\nDNI invalido o con formato erroneo";
+    }
+
+    return errorMsg;
 }
+
