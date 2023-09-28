@@ -85,3 +85,6 @@ console.log(fecha.exec('12/12/2020')); // Funciona
 console.log(fecha.exec('12/12/20')); // No funciona
 console.log(fecha.test('02/03/2001')); // Funciona
 console.log(fecha.test('12-12-20')); // No funciona
+
+
+let newFecha = /^(0[1-9]|[12][0-9]|3[01])[/](0[1-9]|1[0-2])(\/)[1-9]{4}$/;

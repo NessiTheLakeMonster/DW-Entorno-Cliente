@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio Eventos</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Introduce tus datos bancarios</h1>
+
+        <div class="form-group">
+            <label for="iban">IBAN:</label>
+            <input type="text" id="iban" class="input-field">
+            <input type="text" id="cuenta" class="input-field">
+        </div>
+        
+        <p id="mensajeIBAN" class="error-message"></p>
+        
+        <div class="form-group">
+            <label for="tarjeta">Numero de tarjeta:</label>
+            <input type="text" id="tarjeta" class="input-field">
+        </div>
+
+        <p id="mensajeTarjeta" class="error-message"></p>
+        
+        <div class="form-group">
+            <label for="cvv">CVV:</label>
+            <input type="text" id="cvv" class="input-field">
+        </div>
+
+        <p id="mensajeCVV" class="error-message"></p>
+
+        <button onclick="verificar()" id="boton">Enviar</button> 
+    </div>
+</body>
+<script src="app.js"></script>
+</html>
