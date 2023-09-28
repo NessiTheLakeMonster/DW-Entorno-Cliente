@@ -147,13 +147,6 @@ function guardar() {
 }
 
 function validar() {
-    comprobarNombre();
-    comprobarApellido();
-    comprobarFecha();
-    comprobarEmail();
-    comprobarFecha();
-    comprobarDNI();
-
     var mensajeError = validarErrores()
 
     if (mensajeError == '') {
