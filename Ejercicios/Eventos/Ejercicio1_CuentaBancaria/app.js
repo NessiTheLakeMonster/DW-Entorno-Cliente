@@ -1,6 +1,7 @@
 var msgIBAN = document.getElementById('mensajeIBAN');
 var msgTarjeta = document.getElementById('mensajeTarjeta');
 var msgCVV = document.getElementById('mensajeCVV');
+
 const btn = document.getElementById('boton');
 
 btn.addEventListener('click', function(event) {
@@ -53,9 +54,13 @@ function comprobarCVV() {
 }
 
 function verificar() {
+    msgIBAN.textContent = '';
+    document.getElementById('iban').style.backgroundColor = 'white';
+    msgTarjeta.textContent = '';
+    msgCVV.textContent = '';
+
     comprobarIBAN();
     comprobarCuenta();
     comporbarNTarjeta();
     comprobarCVV();
 }
-
