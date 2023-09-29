@@ -1,5 +1,32 @@
 /* Creado automaticamente con IA */
 
+/* Estilo para la lista de navegación */
+ul.navigation {
+    background-color: #333; /* Color de fondo de la barra de navegación */
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+ul.navigation li {
+    float: left; /* Hace que los elementos de la lista floten hacia la izquierda */
+}
+
+ul.navigation li a {
+    display: block;
+    color: white; /* Color del texto en los enlaces */
+    text-align: center;
+    padding: 14px 16px; /* Espacio interno de los enlaces */
+    text-decoration: none;
+}
+
+  /* Estilo para el título de la página */
+h1 {
+    text-align: center;
+    margin-top: 20px; /* Espacio superior */
+}
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
@@ -16,11 +43,7 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
-    text-align: center;
-}
+
 
 .form-group {
     margin-bottom: 15px;
