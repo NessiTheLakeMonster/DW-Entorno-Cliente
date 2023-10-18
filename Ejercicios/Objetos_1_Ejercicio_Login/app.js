@@ -50,6 +50,9 @@ function comprobarNombre() {
     return true;
 }
 
+/** 
+ * @
+*/
 function comprobarApellido() {
     var a1 = document.getElementById('ape1').value;
     var a2 = document.getElementById('ape2').value;
@@ -181,4 +184,3 @@ function validarErrores() {
 
     return errorMsg;
 }
-
