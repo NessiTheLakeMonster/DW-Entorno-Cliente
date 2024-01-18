@@ -1,0 +1,16 @@
+<div class="container py-5">
+    <h1 class="mb-5 text-center">Ranking</h1>
+
+    @for (rankingList of ranking; track rankingList.id) {
+        <h3 class="mb-3">Datos de la partida:</h3>
+        
+        <ul>
+            <li>Partida: {{rankingList.id}} <br>
+                Persona: {{rankingList.persona.nombre}} con correo {{rankingList.persona.email}} <br>
+                Puntos: {{rankingList.puntos}}</li>
+        </ul>
+    } @empty {
+        <p class="text-center">No hay datos disponibles, juega y aparecerá el ranking</p>
+    }
+</div>
+

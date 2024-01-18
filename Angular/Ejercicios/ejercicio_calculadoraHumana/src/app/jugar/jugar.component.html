@@ -1,0 +1,19 @@
+<div class="container text-center py-5">
+    <h1 class="mb-5">¡Vamos a jugar!</h1>
+
+    <h2 class="mb-3">{{operacionActual}}</h2>
+    <h3 class="mb-3">{{resultadoActual}}</h3>
+
+    <div class="input-group mb-3">
+        <input type="text" id="resultadoUsuario" class="form-control" placeholder="Resultado de la operación">
+        <button class="btn btn-primary" (click)="validarOperacion()">Comprobar operación</button>
+    </div>
+
+    <!-- @if (validarOperacion() == true) {
+        <span class="text-success">Resultado correcto</span>
+    } @else {
+        <span class="text-danger">Resultado incorrecto</span>
+    } -->
+
+    <p class="mt-5">Tiempo restante: <span class="badge bg-primary">{{ contador }}</span> segundos</p>
+</div>

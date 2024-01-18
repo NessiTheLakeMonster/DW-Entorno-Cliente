@@ -1,0 +1,10 @@
+<p>user works!</p>
+<h1>{{ nombre }}</h1>
+<h2>{{ logeado }}</h2>
+<button (click)="logeado=true">Boton prueba</button>
+
+@if (logeado) {
+<h3>Logeado</h3>
+} @else {
+<h3>No Logeado</h3>
+}
